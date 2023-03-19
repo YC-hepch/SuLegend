@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: file content
+ * @version: 1.0
+ * @Author: 予程_hepch
+ * @Date: 2022-02-23 09:52:03
+ * @LastEditors: 予程_hepch
+ * @LastEditTime: 2023-03-20 00:47:56
+ * @Copyright: 超图软件华中平台客户中心 (SuperMap Software Co., Ltd. -Central China Platform)
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图例</title>
+
+    <link href="http://www.supermapol.com/earth/static/Cesium/Widgets/widgets.css" rel="stylesheet" />
+
+    <!-- 构建页面的css样式文件 -->
+    <link rel="stylesheet" href="./css/legend.css" />
+</head>
+
+<body>
+    <div id="mapViewer"></div>
+    <!--jquery库文件 建议下载到本地，引入本地资源  -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!--cesuim库、样式文件 建议下载到本地，引入本地资源  -->
+    <script src="http://www.supermapol.com/earth/static/Cesium/Cesium.js"></script>
+    <script src="./js/SupermapMapLayerCesiumLegend.js"></script>
+    <script>
+        window.viewer = new Cesium.Viewer("mapViewer", {
+            infoBox: false
+        });
+        var imageryLayers =viewer.imageryLayers;
+        let provider = new Cesium.SuperMapImageryProvider({
+            url: "http://10.64.64.101:8090/iserver/services/map-WuHanShiJingKaiQuPeiTu/rest/maps/武汉市经开区配图" //经纬度地图服务
+        });
+        imageryLayers.addImageryProvider(provider)
+        var legend = new SmpLegend(viewer, {
+            mapUrls: ["http://10.64.64.101:8090/iserver/services/map-WuHanShiJingKaiQuPeiTu/rest/maps/武汉市经开区配图"],
+            maxHeight: 300,
+            maxWidth: 300,
+            minWidth: 100,
+            minHeight: 100,
+            title: "图例"
+        })
+    </script>
+</body>
