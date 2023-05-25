@@ -5,7 +5,6 @@
  * @Date: 2022-02-23 14:33:39
  * @LastEditors: 予程_hepch
  * @LastEditTime: 2022-03-01 13:50:10
- * @Copyright: 超图软件华中平台客户中心 (SuperMap Software Co., Ltd. -Central China Platform)
  */
 /**
  * @Description: 
